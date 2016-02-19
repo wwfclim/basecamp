@@ -151,12 +151,11 @@ class Entity
         $id = new Id($array[self::_ID]);
         $authorId = new Id($array[self::_AUTHOR_ID]);
         $commentableId = new Id($array[self::_COMMENTABLE_ID]);
-        $emailedFrom
+        /*$emailedFrom
             = ($array[self::_EMAILED_FROM] != '')
-            //? new Id($array[self::_EMAILED_FROM])
-            ? $array[self::_EMAILED_FROM]
+            ? new Id($array[self::_EMAILED_FROM])
             : null
-        ;
+        ;*/
 
         $this->_data = array(
             self::_ID => $id,
@@ -165,7 +164,7 @@ class Entity
             self::_COMMENTABLE_ID => $commentableId,
             self::_COMMENTABLE_TYPE => $array[self::_COMMENTABLE_TYPE],
             self::_BODY => $array[self::_BODY],
-            self::_EMAILED_FROM => $emailedFrom,
+            self::_EMAILED_FROM => $array[self::_EMAILED_FROM],
             self::_CREATED_AT => $array[self::_CREATED_AT],
             self::_ATTACHMENTS_COUNT => $array[self::_ATTACHMENTS_COUNT],
         );
