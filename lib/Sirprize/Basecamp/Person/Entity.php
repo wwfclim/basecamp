@@ -41,6 +41,7 @@ class Entity
     const _USER_NAME = 'user-name';
     const _EMAIL_ADDRESS = 'email-address';
     const _AVATAR_URL = 'avatar-url';
+    const _TIME_ZONE_NAME = 'time-zone-name';
 
     protected $_service = null;
     protected $_httpClient = null;
@@ -192,6 +193,11 @@ class Entity
     {
         return $this->_getVal(self::_AVATAR_URL);
     }
+    
+    public function getTimeZoneName()
+    {
+        return $this->_getVal(self::_TIME_ZONE_NAME);
+    }
 
     /**
      * Load data returned from an api request
@@ -273,6 +279,7 @@ class Entity
             self::_USER_NAME => $userRealName,
             self::_EMAIL_ADDRESS => $array[self::_EMAIL_ADDRESS],
             self::_AVATAR_URL => $array[self::_AVATAR_URL]
+            self::_TIME_ZONE_NAME => $array[self::_TIME_ZONE_NAME]
         );
 
         return $this;
