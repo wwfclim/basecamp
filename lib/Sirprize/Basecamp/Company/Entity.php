@@ -168,6 +168,15 @@ class Entity
         {
           $canSeePrivate = false;
         }
+        
+        if (isset($array[self::_URL_NAME]))
+        {
+          $urlName = $array[self::_URL_NAME];
+        }
+        else
+        {
+          $urlName = null;
+        }
 
 
         $this->_data = array(
@@ -185,7 +194,7 @@ class Entity
 	        self::_TIME_ZONE_ID => $array[self::_TIME_ZONE_ID],
 	        self::_CAN_SEE_PRIVATE => $canSeePrivate,
             #self::_TOKEN => $array[self::_TOKEN],
-            self::_URL_NAME => $array[self::_URL_NAME]
+            self::_URL_NAME => $urlName
         );
 
         return $this;
