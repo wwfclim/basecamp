@@ -278,7 +278,7 @@ class Entity
             self::_COMPANY_ID => $companyId,
             self::_USER_NAME => $userRealName,
             self::_EMAIL_ADDRESS => $array[self::_EMAIL_ADDRESS],
-            self::_AVATAR_URL => $array[self::_AVATAR_URL]
+            self::_AVATAR_URL => $array[self::_AVATAR_URL],
             self::_TIME_ZONE_NAME => $array[self::_TIME_ZONE_NAME]
         );
 
