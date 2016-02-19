@@ -18,7 +18,6 @@ use Sirprize\Basecamp\Comment\Collection as CommentCollection;
 use Sirprize\Basecamp\Attachment\Collection as AttachmentCollection;
 use Sirprize\Basecamp\TodoList\Collection as TodoListCollection;
 use Sirprize\Basecamp\TodoItem\Collection as TodoItemCollection;
-use Sirprize\Basecamp\Comany\Collection as ComanyCollection;
 
 class Service
 {
@@ -185,16 +184,6 @@ class Service
             ->setHttpClient($this->_getHttpClient())
         ;
         return $todoListitems;
-    }
-    
-    public function getCompaniesInstance()
-    {
-        $companies = new CompanyCollection();
-        $companies
-            ->setService($this)
-            ->setHttpClient($this->_getHttpClient())
-        ;
-        return $companies;
     }
 
     public function getSchemaInstance()
