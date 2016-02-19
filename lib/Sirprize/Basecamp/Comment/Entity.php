@@ -153,7 +153,8 @@ class Entity
         $commentableId = new Id($array[self::_COMMENTABLE_ID]);
         $emailedFrom
             = ($array[self::_EMAILED_FROM] != '')
-            ? new Id($array[self::_EMAILED_FROM])
+            //? new Id($array[self::_EMAILED_FROM])
+            ? $array[self::_EMAILED_FROM]
             : null
         ;
 
