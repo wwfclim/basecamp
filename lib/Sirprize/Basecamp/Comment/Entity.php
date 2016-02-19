@@ -109,10 +109,44 @@ class Entity
     {
         return $this->_getVal(self::_ID);
     }
+    
+    public function getAuthor()
+    {
+        if($this->_getVal(self::_AUTHOR_ID))
+        {
+            $author = $this->_getService()->getPersonsInstance()->startById($this->_getVal(self::_AUTHOR_ID));
+            return $author;
+        }
+    }
+    
+    public function getAuthorId()
+    {
+        return $this->_getVal(self::_AUTHOR_ID);
+    }
+    
+    public function getAuthorName()
+    {
+        return $this->_getVal(self::_AUTHOR_NAME);
+    }
 
     public function getBody()
     {
         return $this->_getVal(self::_BODY);
+    }
+    
+    public function getEmailedFrom()
+    {
+        return $this->_getVal(self::_EMAILED_FROM);
+    }
+    
+    public function getCreatedOn()
+    {
+        return $this->_getVal(self::_CREATED_AT);
+    }
+    
+    public function getAttachmentCount()
+    {
+        return $this->_getVal(self::_ATTACHMENTS_COUNT);
     }
 
     public function getAttachments()
