@@ -37,6 +37,7 @@ class Entity
     protected $_response = null;
     protected $_observers = array();
     protected $_attachments = null;
+    protected $_author = null;
 
     public function setService(Service $service)
     {
@@ -114,8 +115,8 @@ class Entity
     {
         if($this->_getVal(self::_AUTHOR_ID))
         {
-            $author = $this->_getService()->getPersonsInstance()->startById($this->_getVal(self::_AUTHOR_ID));
-            return $author;
+            $this->_author = $this->_getService()->getPersonsInstance()->startById($this->_getVal(self::_AUTHOR_ID));
+            return $this->_author;
         }
     }
     
