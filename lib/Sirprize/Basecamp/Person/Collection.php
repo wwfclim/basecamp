@@ -240,6 +240,50 @@ class Collection extends \SplObjectStorage
     }
 
     /**
+     * Fetch people within company
+     *
+     * @throws Exception
+     * @return \Sirprize\Basecamp\Person\Entity
+     */
+    public function startAllByCompanyId(Id $companyId)
+    {
+        if($this->_started)
+        {
+            return $this;
+        }
+
+        $this->_started = true;
+
+        try {
+            $response = $this->_getHttpClient()
+                ->setUri($this->_getService()->getBaseUri()."/companies/$companyId/people.xml")
+                ->setAuth($this->_getService()->getUsername(), $this->_getService()->getPassword())
+                ->request('GET')
+            ;
+        }
+        catch(\Exception $exception)
+        {
+            // connection error
+            $this->_onStartError();
+
+            throw new Exception($exception->getMessage());
+        }
+
+        $this->_response = new Response($response);
+
+        if($this->_response->isError())
+        {
+            // service error
+            $this->_onStartError();
+            return $this;
+        }
+
+        $this->load($this->_response->getData());
+        $this->_onStartSuccess();
+        return $this;
+    }
+    
+    /**
      * Fetch people within project
      *
      * @throws Exception
